@@ -17,14 +17,18 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.getTransactions();
-    this.balance = this.transactionService.getTransactionTotal();
-    this.income = this.transactionService.getIncomeTotal();
-    this.expense = this.transactionService.getExpenseTotal();
+    this.refreshTotals();
   }
 
   getTransactions() {
     this.transactions = this.transactionService.getTransactions();
   }
+
+  addTransaction(transaction: Transaction) {
+    this.transactionService.addTransaction(transaction);
+    this.refreshTotals();
+  }
+
   deleteTransaction(transaction: Transaction): void {
     this.transactions = this.transactionService.deleteTransaction(transaction);
     this.refreshTotals();

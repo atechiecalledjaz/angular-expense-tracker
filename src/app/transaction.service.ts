@@ -55,6 +55,10 @@ export class TransactionService {
     return filteredList;
   }
 
+  addTransaction(transaction: Transaction): void {
+    this.transactions.push(transaction);
+  }
+
   updateTransactions(transactions: Transaction[]): void {
     this.transactions = transactions;
   }
