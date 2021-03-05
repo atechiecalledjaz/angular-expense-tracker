@@ -1,10 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Transaction } from './transaction';
+import { TransactionService } from './transaction.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'angular-expense-tracker';
+export class AppComponent implements OnInit {
+  transactions: Transaction[] = [];
+  balance: number = 0;
+  income: number = 0;
+  expense: number = 0;
+
+  constructor(private transactionService: TransactionService) {}
+
+  ngOnInit() {
+    this.getTransactions();
+    this.balance = this.transactionService.getTransactionTotal();
+    this.income = this.transactionService.getIncomeTotal();
+    this.expense = this.transactionService.getExpenseTotal();
+  }
+
+  getTransactions() {
+    this.transactions = this.transactionService.getTransactions();
+  }
+  deleteTransaction(transaction: Transaction): void {
+    this.transactions = this.transactionService.deleteTransaction(transaction);
+    this.refreshTotals();
+  }
+
+  refreshTotals() {
+    this.income = this.transactionService.getIncomeTotal();
+    this.expense = this.transactionService.getExpenseTotal();
+    this.balance = this.transactionService.getTransactionTotal();
+  }
 }
