@@ -1,25 +1,2 @@
 <h2 class="title">Expense Tracker</h2>
-<app-balance [total]="balance"></app-balance>
-<app-income-expenses
-  [income]="income"
-  [expense]="expense"
-></app-income-expenses>
-<div class="container">
-  <div *ngIf="balance">
-    <h3>History</h3>
-    <ul class="list">
-      <li
-        *ngFor="let transaction of transactions"
-        [ngClass]="transaction.amount < 0 ? 'minus' : 'plus'"
-      >
-        {{ transaction.text }} <span>{{ transaction.amount }}</span>
-        <button class="delete-btn" (click)="deleteTransaction(transaction)">
-          x
-        </button>
-      </li>
-    </ul>
-  </div>
-  <app-transaction-form
-    (newTransactionEvent)="addTransaction($event)"
-  ></app-transaction-form>
-</div>
+<app-expense-tracker></app-expense-tracker>

@@ -6,6 +6,7 @@ import { BalanceComponent } from './balance/balance.component';
 import { IncomeExpensesComponent } from './income-expenses/income-expenses.component';
 import { TransactionFormComponent } from './transaction-form/transaction-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ExpenseTrackerComponent } from './expense-tracker/expense-tracker.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     BalanceComponent,
     IncomeExpensesComponent,
     TransactionFormComponent,
+    ExpenseTrackerComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],

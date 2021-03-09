@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TransactionService } from '../transaction.service';
-
 @Component({
   selector: 'app-balance',
   templateUrl: './balance.component.html',
@@ -8,7 +6,7 @@ import { TransactionService } from '../transaction.service';
 })
 export class BalanceComponent implements OnInit {
   @Input() total = 0;
-  constructor(private transactionService: TransactionService) {}
+  constructor() {}
 
   ngOnInit(): void {}
 }

@@ -48,18 +48,21 @@ export class TransactionService {
   }
 
   deleteTransaction(transaction: Transaction): Transaction[] {
-    const filteredList = this.transactions.filter(
+    this.transactions = this.transactions.filter(
       (t) => t.id !== transaction.id
     );
-    this.updateTransactions(filteredList);
-    return filteredList;
+
+    return this.transactions;
   }
 
   addTransaction(transaction: Transaction): void {
+    transaction.id = this.genId(this.transactions);
     this.transactions.push(transaction);
   }
 
-  updateTransactions(transactions: Transaction[]): void {
-    this.transactions = transactions;
+  genId(transactions: Transaction[]): number {
+    return transactions.length > 0
+      ? Math.max(...transactions.map((transaction) => transaction.id)) + 1
+      : 1;
   }
 }
