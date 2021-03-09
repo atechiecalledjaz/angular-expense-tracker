@@ -1,6 +1,6 @@
 # AngularExpenseTracker
 
-View the project live at [Stackblitz](https://parigkbvl.github.stackblitz.io).
+View the project live at [Stackblitz](stackblitz.com/github/atechiecalledjaz/angular-expense-tracker).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
 
